@@ -11,13 +11,14 @@
         
             <div class="col-md-8 col-md-offset-2 top50">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search for...">
+                        <input id="keywords" name="keywords"type="text" class="form-control" placeholder="Search for...">
                         <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">Go!</button>
+                            <button class="btn btn-default" type="button" onclick="search()">Go!</button>
                         </span>
                     </div><!-- /input-group -->
              </div><!-- /.col-lg-6 -->
         </div><!-- col-md-8--> 
     </div><!-- row top-->
 </div><!-- container-->
+<script type="text/javascript" src="{{url('js/kaleo.js')}}">
 @endsection

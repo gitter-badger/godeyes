@@ -18,6 +18,4 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
-Route::get('/show', function () {
-    return view('show');
-});
+Route::get('/search', 'SearchController@show');
