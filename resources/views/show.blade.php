@@ -15,7 +15,7 @@
                     </div><!-- /input-group -->
             </div>   
             <div class="col-md-12 col-md-offset-3 top10">
-                <span class="col-md-6">找到约 {{count($peoples)}} 条结果 （用时 0.56 秒） </span>
+                <span class="col-md-6">找到约 {{count($peoples)}} 条结果 （用时 {{$subtime}} 秒） </span>
             </div><!--col-md-12 top10-->
 
                 <div class="col-md-12 col-md-offset-3 top50">
@@ -43,6 +43,7 @@
                         <tr>
                             @endforeach
                     </table>
+                    {{$peoples->appends(['keywords'=>$keywords])->links()}}
                 </div>
         
         </div><!-- col-md-8--> 
