@@ -14,16 +14,17 @@ class SearchController extends Controller
     }
     public function show(Request $request)
     {
-        $starttime=time();
+        $starttime = explode(' ',microtime());
         $input=$request->all();
         $keywords=$input['keywords'];
-        $peoples=Peoples::where('username','like','%'.$keywords.'%')
-                            ->orWhere('nickname','like','%'.$keywords.'%')
-                            ->orWhere('email','like','%'.$keywords.'%')
-                            ->simplePaginate(15);
-        $endtime=time();
-        $subtime=$endtime-$starttime;
-        //$subtime=floor(($subtime%(3600*24))%60);
+        $peoples=Peoples::where('username',$keywords)
+            ->orWhere('nickname',$keywords)
+            ->orWhere('email',$keywords)
+            ->simplePaginate(15);
+        $endtime = explode(' ',microtime());
+        $thistime = $endtime[0]+$endtime[1]-($starttime[0]+$starttime[1]);
+        $thistime = round($thistime,3);
+        $subtime=$thistime;
         return view('show')
             ->with('peoples',$peoples)
             ->with('subtime',$subtime)
