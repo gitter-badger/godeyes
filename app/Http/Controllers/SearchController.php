@@ -17,9 +17,12 @@ class SearchController extends Controller
         $starttime = explode(' ',microtime());
         $input=$request->all();
         $keywords=$input['keywords'];
+        
+        $nickname=Peoples::where('nickname',$keywords);
+        $email=Peoples::where('email',$keywords);
         $peoples=Peoples::where('username',$keywords)
-            ->orWhere('nickname',$keywords)
-            ->orWhere('email',$keywords)
+            //->union($nickname)
+            //->union($email)
             ->simplePaginate(15);
         $endtime = explode(' ',microtime());
         $thistime = $endtime[0]+$endtime[1]-($starttime[0]+$starttime[1]);

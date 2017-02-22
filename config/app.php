@@ -183,7 +183,11 @@ return [
         /*
          * laravel-admin
          */
-        Encore\Admin\Providers\AdminServiceProvider::class 
+        Encore\Admin\Providers\AdminServiceProvider::class, 
+        /*
+         * laravel-debuger调试工具
+         */
+        Barryvdh\Debugbar\ServiceProvider::class,
 
     ],
 

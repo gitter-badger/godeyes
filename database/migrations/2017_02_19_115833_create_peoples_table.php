@@ -24,6 +24,11 @@ class CreatePeoplesTable extends Migration
             $table->string('address')->nullable();
             $table->string('from')->nullable();
             $table->timestamps();
+            $table->index('username');
+            $table->index('nickname');
+            $table->index('phone');
+            $table->index('email');
+            $table->primary('username','nickname','email');
         });
     }
 
