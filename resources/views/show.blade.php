@@ -8,7 +8,7 @@
             <div class="col-md-12 top50" >
                 <img class="col-md-3" src="{{url('images/logo500.png')}}">
                     <div class="input-group">
-                        <input id="keywords" name="keywords"type="text" class="form-control" placeholder="Search for...">
+                        <input id="keywords" name="keywords"type="text" class="form-control" placeholder="Search for QQ Email Username">
                         <span class="input-group-btn">
                             <button class="btn btn-default" type="button" onclick="search()">Go!</button>
                         </span>

@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ url('css/kaleo.css') }}" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
@@ -80,8 +81,11 @@
 
         @yield('content')
     </div>
-
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <div class="col-md-3 col-md-offset-4 top100">
+
+        {{config('app.copyright')}}
+    </div>
 </body>
 </html>
