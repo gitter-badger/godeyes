@@ -55,9 +55,15 @@
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
                             <li class="dropdown">
+                            @if (Auth::user()->vip==1)
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    {{ Auth::user()->name }} VIP <span class="caret"></span>
+                                </a>
+                            @else
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
+                            @endif
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>

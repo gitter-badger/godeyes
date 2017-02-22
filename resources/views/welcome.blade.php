@@ -58,9 +58,15 @@ html, body {
                 text-decoration: none;
                 text-transform: uppercase;
             }
+            .info{
+                font-size:28px
+            }
 
             .m-b-md {
                 margin-bottom: 30px;
+            }
+            .top{
+                margin-top:200px
             }
         </style>
     </head>
@@ -81,9 +87,12 @@ html, body {
                 <div class="title m-b-md">
                     <img src="{{url('images/logo500.png')}}">
                 </div>
+                <div class="m-b-md info">
+                    {{config('app.welcome')}}
+                    </div>
 
-                <div class="links">
-            {{config('app.copyright')}}
+                <div class="links top">
+                    {{config('app.copyright')}}
                 </div>
             </div>
         </div>
