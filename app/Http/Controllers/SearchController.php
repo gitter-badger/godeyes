@@ -27,7 +27,9 @@ class SearchController extends Controller
                 ->simplePaginate(15);
             break;
         case 'company':
-            $results=Companys::where('name',$keywords)
+            $results=Companys::where('name','like','%'.$keywords.'%')
+                ->orWhere('address','like','%'.$keywords.'%')
+                ->orWhere('legalperson','like','%'.$keywords.'%')
                 ->simplePaginate(15);
             break;
         default:
