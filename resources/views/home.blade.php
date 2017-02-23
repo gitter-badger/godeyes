@@ -15,11 +15,11 @@
                         </label>
                         <label class="checkbox-inline">
                             <input type="radio" name="type" id="optionsRadios2"  value="people"> 
-                            People
+                            个人
                         </label>
                         <label class="checkbox-inline">
                             <input type="radio" name="type" id="optionsRadios3"  value="company"> 
-                            Company
+                            公司
                         </label>
                     </div>
                     <div class="input-group">

@@ -17,39 +17,39 @@
                         </label>
                         <label class="checkbox-inline">
                             <input type="radio" name="type" id="optionsRadios2"  value="people"> 
-                            People
+                            个人
                         </label>
                         <label class="checkbox-inline">
                             <input type="radio" name="type" id="optionsRadios3"  value="company"> 
-                            Company
+                            公司
                         </label>
                         @elseif ($type=='people')
                         <label class="checkbox-inline">
                             <input type="radio" name="type" id="optionsRadios1" value="qq" > 
                             QQ
                         </label>
-                            <label class="checkbox-inline">
-                                <input type="radio" name="type" id="optionsRadios2"  value="people" checked> 
-                                People
-                            </label>
-                            <label class="checkbox-inline">
-                                <input type="radio" name="type" id="optionsRadios3"  value="company"> 
-                                Company
-                            </label>
-                            @else ($type=='company')
-                            <label class="checkbox-inline">
-                                <input type="radio" name="type" id="optionsRadios1" value="qq"> 
-                                QQ
-                            </label>
-                            <label class="checkbox-inline">
-                                <input type="radio" name="type" id="optionsRadios2"  value="people"> 
-                                People
-                            </label>
-                            <label class="checkbox-inline">
-                                <input type="radio" name="type" id="optionsRadios3"  value="company" checked> 
-                                Company
-                            </label>
-                            @endif
+                        <label class="checkbox-inline">
+                            <input type="radio" name="type" id="optionsRadios2"  value="people" checked> 
+                            个人
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="radio" name="type" id="optionsRadios3"  value="company"> 
+                            公司
+                        </label>
+                        @else ($type=='company')
+                        <label class="checkbox-inline">
+                            <input type="radio" name="type" id="optionsRadios1" value="qq"> 
+                            QQ
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="radio" name="type" id="optionsRadios2"  value="people"> 
+                            个人
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="radio" name="type" id="optionsRadios3"  value="company" checked> 
+                            公司
+                        </label>
+                        @endif
                     </div>
                     <div class="input-group col-md-12 top20">
                         <div class="input-group">
@@ -68,75 +68,75 @@
                         <table class="table">
                             @if ($type == 'qq') 
                             <thead>
-                            <tr>
-                                <th>用户名</th>
-                                <th>昵称</th>
-                                <th>密码</th>
-                                <th>邮箱</th>
-                                <th>来源</th>
-                            </tr>
+                                <tr>
+                                    <th>用户名</th>
+                                    <th>昵称</th>
+                                    <th>密码</th>
+                                    <th>邮箱</th>
+                                    <th>来源</th>
+                                </tr>
                             </thead>
                             @foreach ($results as $qq)
                             <tbody>
-                            <tr>
-                                <td>{{$qq['username']}}</td>
-                                <td>{{$qq['nickname']}}</td>
-                                <td>{{$qq['password']}}</td>
-                                <td>{{$qq['email']}}</td>
-                                <td>{{$qq['from']}}</td>
-                            </tr>
+                                <tr>
+                                    <td>{{$qq['username']}}</td>
+                                    <td>{{$qq['nickname']}}</td>
+                                    <td>{{$qq['password']}}</td>
+                                    <td>{{$qq['email']}}</td>
+                                    <td>{{$qq['from']}}</td>
+                                </tr>
                             </tbody>
                             @endforeach
                             @elseif ($type == 'people') 
                             <thead>
-                            <tr>
-                                <th>姓名</th>
-                                <th>性别</th>
-                                <th>手机</th>
-                                <th>QQ</th>
-                                <th>邮箱</th>
-                                <th>身份证</th>
-                                <th>地址</th>
-                                <th>来源</th>
-                            </tr>
+                                <tr>
+                                    <th>姓名</th>
+                                    <th>性别</th>
+                                    <th>手机</th>
+                                    <th>QQ</th>
+                                    <th>邮箱</th>
+                                    <th>身份证</th>
+                                    <th>地址</th>
+                                    <th>来源</th>
+                                </tr>
                             </thead>
                             @foreach ($results as $people)
                             <tbody>
-                            <tr>
-                                <td>{{$people['name']}}</td>
-                                <td>{{$people['sex']}}</td>
-                                <td>{{$people['phone']}}</td>
-                                <td>{{$people['qq']}}</td>
-                                <td>{{$people['email']}}</td>
-                                <td>{{$people['idcard']}}</td>
-                                <td>{{$people['address']}}</td>
-                                <td>{{$people['from']}}</td>
-                            </tr>
+                                <tr>
+                                    <td>{{$people['name']}}</td>
+                                    <td>{{$people['sex']}}</td>
+                                    <td>{{$people['phone']}}</td>
+                                    <td>{{$people['qq']}}</td>
+                                    <td>{{$people['email']}}</td>
+                                    <td>{{$people['idcard']}}</td>
+                                    <td>{{$people['address']}}</td>
+                                    <td>{{$people['from']}}</td>
+                                </tr>
                             </tbody>
                             @endforeach
                             @else
                             <thead>
-                            <tr>
-                                <th class="col-md-2">公司名称</th>
-                                <th class="col-md-1">法人</th>
-                                <th class="col-md-1">电话</th>
-                                <th class="col-md-3">地址</th>
-                                <th class="col-md-1">类型</th>
-                                <th class="col-md-2">地区</th>
-                                <th class="col-md-1">来源</th>
-                            </tr>
+                                <tr>
+                                    <th class="col-md-2">公司名称</th>
+                                    <th class="col-md-1">法人</th>
+                                    <th class="col-md-1">电话</th>
+                                    <th class="col-md-3">地址</th>
+                                    <th class="col-md-1">类型</th>
+                                    <th class="col-md-2">地区</th>
+                                    <th class="col-md-1">来源</th>
+                                </tr>
                             </thead>
                             @foreach ($results as $company)
                             <tbody>
-                            <tr>
-                                <td>{{$company['name']}}</td>
-                                <td>{{$company['legalperson']}}</td>
-                                <td>{{$company['phone']}}</td>
-                                <td>{{$company['address']}}</td>
-                                <td>{{$company['companytype']}}</td>
-                                <td>{{$company['location']}}</td>
-                                <td>{{$company['source']}}</td>
-                            </tr>
+                                <tr>
+                                    <td>{{$company['name']}}</td>
+                                    <td>{{$company['legalperson']}}</td>
+                                    <td>{{$company['phone']}}</td>
+                                    <td>{{$company['address']}}</td>
+                                    <td>{{$company['companytype']}}</td>
+                                    <td>{{$company['location']}}</td>
+                                    <td>{{$company['source']}}</td>
+                                </tr>
                             </tbody>
                             @endforeach
                             @endif
