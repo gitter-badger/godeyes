@@ -11,7 +11,7 @@
                     <div>
                         <label class="checkbox-inline">
                             <input type="radio" name="type" id="optionsRadios1" value="qq" checked> 
-                            QQ
+                            用户名
                         </label>
                         <label class="checkbox-inline">
                             <input type="radio" name="type" id="optionsRadios2"  value="people"> 
