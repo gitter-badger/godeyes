@@ -8,7 +8,7 @@ function search(){
             type=types[i].value;
         };
     };
-    var url="http://localhost/search?keywords="+keywords+"&type="+type;
+    var url="http://kaleozhou.iok.la/search?keywords="+keywords+"&type="+type;
     location.href=url;
 }
 

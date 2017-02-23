@@ -84,7 +84,7 @@ html, body {
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
+                <div class="title m-b-md col-md-8">
                     <img src="{{url('images/logo500.png')}}">
                 </div>
                 <div class="m-b-md info">
