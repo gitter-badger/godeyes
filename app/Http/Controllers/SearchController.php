@@ -1,10 +1,9 @@
 <?php
-
 namespace App\Http\Controllers;
 use App\Models\Peoples;
-use App\Models\Sgk;
+use App\Models\Companys;
+use App\Models\Qqs;
 use Illuminate\Http\Request;
-
 class SearchController extends Controller
 {
     //
@@ -17,23 +16,31 @@ class SearchController extends Controller
         $starttime = explode(' ',microtime());
         $input=$request->all();
         $keywords=$input['keywords'];
-        
-        $nickname=Peoples::where('nickname',$keywords);
-        $email=Peoples::where('email',$keywords);
-        $peoples=Peoples::where('username',$keywords)
-            //->union($nickname)
-            //->union($email)
-            ->simplePaginate(15);
+        $type=$input['type'];
+        switch ($type) {
+        case 'qq':
+            $results=Qqs::where('username',$keywords)
+                ->simplePaginate(15);
+            break;
+        case 'people':
+            $results=Peoples::where('name',$keywords)
+                ->simplePaginate(15);
+            break;
+        case 'company':
+            $results=Companys::where('name',$keywords)
+                ->simplePaginate(15);
+            break;
+        default:
+            break;
+        }
         $endtime = explode(' ',microtime());
         $thistime = $endtime[0]+$endtime[1]-($starttime[0]+$starttime[1]);
         $thistime = round($thistime,3);
         $subtime=$thistime;
         return view('show')
-            ->with('peoples',$peoples)
+            ->with('results',$results)
+            ->with('type',$type)
             ->with('subtime',$subtime)
             ->with('keywords',$keywords);
     }
-
-
-
 }

@@ -15,13 +15,15 @@ class CreateCompanysTable extends Migration
     {
         Schema::create('companys', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->nullable();
-            $table->string('phone')->nullable();
-            $table->string('address')->nullable();
-            $table->string('companytype')->nullable();
-            $table->string('location')->nullable();
-            $table->string('source')->nullable();
-            $table->string('legalperson')->nullable();
+            $table->string('name')->unique()->default("")->nullable();
+            $table->string('phone')->defauliti("")->nullable();
+            $table->string('address')->defauliti("")->nullable();
+            $table->string('companytype')->defauliti("")->nullable();
+            $table->string('location')->defauliti("")->nullable();
+            $table->string('source')->defauliti("")->nullable();
+            $table->string('legalperson')->defauliti("")->nullable();
+            $table->index('phone');
+            $table->index('legalperson');
             $table->timestamps();
         });
     }

@@ -15,20 +15,19 @@ class CreatePeoplesTable extends Migration
     {
         Schema::create('peoples', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('username')->nullable();
-            $table->string('nickname')->nullable();
-            $table->string('password')->nullable();
-            $table->string('phone')->nullable();
-            $table->string('email')->nullable();
-            $table->string('idcard')->nullable();
-            $table->string('address')->nullable();
-            $table->string('from')->nullable();
+            $table->string('name')->default("")->nullable();
+            $table->string('sex')->default("")->nullable();
+            $table->string('phone')->default("")->nullable();
+            $table->string('qq')->default("")->nullable();
+            $table->string('email')->default("")->nullable();
+            $table->string('idcard')->default("")->nullable();
+            $table->string('address')->default("")->nullable();
+            $table->string('from')->default("")->nullable();
             $table->timestamps();
-            $table->index('username');
-            $table->index('nickname');
+            $table->index('name');
             $table->index('phone');
+            $table->index('idcard');
             $table->index('email');
-            $table->primary('username','nickname','email');
         });
     }
 
