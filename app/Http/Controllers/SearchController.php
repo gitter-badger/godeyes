@@ -16,6 +16,9 @@ class SearchController extends Controller
         $starttime = explode(' ',microtime());
         $input=$request->all();
         $keywords=$input['keywords'];
+        if (empty($keywords)) {
+            $keywords="";
+        }
         $type=$input['type'];
         switch ($type) {
         case 'qq':
