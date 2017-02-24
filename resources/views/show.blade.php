@@ -61,7 +61,7 @@
                     </div>
                 </div>   
                 <div class="col-md-12 col-md-offset-3 top10">
-                    <span class="col-md-6">找到约 {{count($results)}} 条结果 （用时 {{$subtime}} 秒） </span>
+                    <span class="col-md-6">找到约 {{$count}} 条结果 （用时 {{$subtime}} 秒） </span>
                 </div><!--col-md-12 top10-->
                 <div class="col-md-8 col-md-offset-2 top50">
                     <div class="table-responsive">
