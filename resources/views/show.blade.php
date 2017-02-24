@@ -3,12 +3,12 @@
 <link rel="stylesheet" href="{{url('css/kaleo.css')}}" type="text/css"/>
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
-            <div class="col-md-12 top40" >
-                <div class="col-md-3 top20">
-                    <img class="col-md-12" src="{{url('images/logo500.png')}}">
+        <div class="col-md-12 top50">
+            <div class="col-md-12" >
+                <div class="col-md-3">
+                    <img class="col-md-12" src="{{url('images/logo.png')}}">
                 </div>
-                <div class='col-md-4 '>
+                <div class='col-md-4'>
                     <div class='col-md-12 '>
                         @if ($type=='qq')
                         <label class="checkbox-inline">

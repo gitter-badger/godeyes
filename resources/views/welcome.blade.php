@@ -9,6 +9,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <link href="{{url('css/app.css')}}" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
         <style>
@@ -84,8 +85,8 @@ html, body {
             @endif
 
             <div class="content">
-                <div class="title m-b-md col-md-8">
-                    <img src="{{url('images/logo500.png')}}">
+                <div class="title m-b-md">
+                    <img src="{{url('images/logo.png')}}">
                 </div>
                 <div class="m-b-md info">
                     {{config('app.welcome')}}

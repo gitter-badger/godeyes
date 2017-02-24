@@ -2,10 +2,10 @@
 @section('content')
 <link rel="stylesheet" href="{{url('css/kaleo.css')}}" type="text/css"/>
 <div class="container">
-    <div class="row top100">
+    <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="col-md-12" >
-                <img class="col-md-8 col-md-offset-2" src="{{url('images/logo500.png')}}">
+                <img class="col-md-8 col-md-offset-2" src="{{url('images/logo.png')}}">
             </div>   
                 <div class="col-md-8 col-md-offset-2 top50">
                     <div>

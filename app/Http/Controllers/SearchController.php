@@ -20,6 +20,7 @@ class SearchController extends Controller
         if (empty($keywords)) {
             $keywords="";
         }
+        //$keywords_array=explode(' ',$keywords);
         $type=$input['type'];
         switch ($type) {
         case 'qq':
