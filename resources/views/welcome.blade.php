@@ -90,9 +90,9 @@ html, body {
                 </div>
                 <div class="m-b-md info">
                     {{config('app.welcome')}}
-                    </div>
+                </div>
 
-                <div class="links top">
+                <div class="m-b-md info">
                     {{config('app.copyright')}}
                 </div>
             </div>
