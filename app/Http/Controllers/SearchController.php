@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 use App\Models\Peoples;
 use App\Models\Companys;
+use App\Models\Carinfos;
 use App\Models\Qqs;
 use App\Models\Qq1s;
 use Illuminate\Http\Request;
@@ -20,7 +21,7 @@ class SearchController extends Controller
         if (empty($keywords)) {
             $keywords="";
         }
-        //$keywords_array=explode(' ',$keywords);
+        $keywords_array=explode(' ',$keywords);
         $type=$input['type'];
         switch ($type) {
         case 'qq':
@@ -29,12 +30,25 @@ class SearchController extends Controller
         case 'people':
             $results=Peoples::where('name',$keywords)
                 ->orWhere('phone',$keywords)
+                ->orWhere('idcard',$keywords)
                 ->orWhere('idcard',$keywords);
+            if(count($keywords_array)>1)
+            {
+            $keywords=$keywords_array[0];
+            $keyword1s=$keywords_array[1];
+            var_dump($keywords.$keyword1s);
+            $results=Peoples::where('name',$keywords)
+                ->where('address','like','%'.$keyword1s.'%');
+            }
             break;
         case 'company':
             $results=Companys::where('name','like','%'.$keywords.'%')
                 ->orWhere('address','like','%'.$keywords.'%')
                 ->orWhere('legalperson','like','%'.$keywords.'%');
+            break;
+        case 'carinfo':
+            $results=Carinfos::where('name','like','%'.$keywords.'%')
+                ->orWhere('phone','like','%'.$keywords.'%');
             break;
         default:
             break;

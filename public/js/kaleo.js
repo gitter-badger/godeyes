@@ -6,7 +6,9 @@ function search(){
             type=types[i].value;
         };
     };
-    var url="http://kaleozhou.iok.la/search?keywords="+keywords+"&type="+type;
+    var localhost='http://kaleozhou.iok/';
+    var localhost='http://localhost/';
+    var url=localhost+"search?keywords="+keywords+"&type="+type;
     location.href=url;
 }
 function keyDown(e){

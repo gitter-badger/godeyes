@@ -21,6 +21,10 @@
                             <input type="radio" name="type" id="optionsRadios3"  value="company"> 
                             公司
                         </label>
+                        <label class="checkbox-inline">
+                            <input type="radio" name="type" id="optionsRadios4"  value="carinfo"> 
+                            车辆
+                        </label>
                     </div>
                     <div class="input-group">
                         <input id="keywords" name="keywords"type="text" class="form-control" placeholder="Search for QQ Email Username">

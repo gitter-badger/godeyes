@@ -10,7 +10,6 @@
                 </div>
                 <div class='col-md-4'>
                     <div class='col-md-12 '>
-                        @if ($type=='qq')
                         <label class="checkbox-inline">
                             <input type="radio" name="type" id="optionsRadios1" value="qq" checked> 
                             用户名
@@ -23,33 +22,10 @@
                             <input type="radio" name="type" id="optionsRadios3"  value="company"> 
                             公司
                         </label>
-                        @elseif ($type=='people')
                         <label class="checkbox-inline">
-                            <input type="radio" name="type" id="optionsRadios1" value="qq" > 
-                            用户名
+                            <input type="radio" name="type" id="optionsRadios4"  value="carinfo"> 
+                            车辆
                         </label>
-                        <label class="checkbox-inline">
-                            <input type="radio" name="type" id="optionsRadios2"  value="people" checked> 
-                            个人
-                        </label>
-                        <label class="checkbox-inline">
-                            <input type="radio" name="type" id="optionsRadios3"  value="company"> 
-                            公司
-                        </label>
-                        @else ($type=='company')
-                        <label class="checkbox-inline">
-                            <input type="radio" name="type" id="optionsRadios1" value="qq"> 
-                            用户名
-                        </label>
-                        <label class="checkbox-inline">
-                            <input type="radio" name="type" id="optionsRadios2"  value="people"> 
-                            个人
-                        </label>
-                        <label class="checkbox-inline">
-                            <input type="radio" name="type" id="optionsRadios3"  value="company" checked> 
-                            公司
-                        </label>
-                        @endif
                     </div>
                     <div class="input-group col-md-12 top20">
                         <div class="input-group">
@@ -59,6 +35,17 @@
                             </span>
                         </div><!-- /input-group -->
                     </div>
+                    <script type="text/javascript">
+                    @if ($type=='qq')
+                    document.getElementById('optionsRadios1').checked='checked';
+                    @elseif ($type=='people')
+                    document.getElementById('optionsRadios2').checked='checked';
+                    @elseif ($type=='carinfo')
+                    document.getElementById('optionsRadios4').checked='checked';
+                    @else ($type=='company')
+                    document.getElementById('optionsRadios3').checked='checked';
+                    @endif
+                    </script>
                 </div>   
                 <div class="col-md-12 col-md-offset-3 top10">
                     <span class="col-md-6">找到约 {{$count}} 条结果 （用时 {{$subtime}} 秒） </span>
@@ -76,14 +63,14 @@
                                     <th>来源</th>
                                 </tr>
                             </thead>
-                            @foreach ($results as $qq)
+                            @foreach ($results as $res)
                             <tbody>
                                 <tr>
-                                    <td>{{$qq['username']}}</td>
-                                    <td>{{$qq['nickname']}}</td>
-                                    <td>{{$qq['password']}}</td>
-                                    <td>{{$qq['email']}}</td>
-                                    <td>{{$qq['from']}}</td>
+                                    <td>{{$res['username']}}</td>
+                                    <td>{{$res['nickname']}}</td>
+                                    <td>{{$res['password']}}</td>
+                                    <td>{{$res['email']}}</td>
+                                    <td>{{$res['from']}}</td>
                                 </tr>
                             </tbody>
                             @endforeach
@@ -100,17 +87,52 @@
                                     <th>来源</th>
                                 </tr>
                             </thead>
-                            @foreach ($results as $people)
+                            @foreach ($results as $res)
                             <tbody>
                                 <tr>
-                                    <td>{{$people['name']}}</td>
-                                    <td>{{$people['sex']}}</td>
-                                    <td>{{$people['phone']}}</td>
-                                    <td>{{$people['qq']}}</td>
-                                    <td>{{$people['email']}}</td>
-                                    <td>{{$people['idcard']}}</td>
-                                    <td>{{$people['address']}}</td>
-                                    <td>{{$people['from']}}</td>
+                                    <td>{{$res['name']}}</td>
+                                    <td>{{$res['sex']}}</td>
+                                    <td>{{$res['phone']}}</td>
+                                    <td>{{$res['qq']}}</td>
+                                    <td>{{$res['email']}}</td>
+                                    <td>{{$res['idcard']}}</td>
+                                    <td>{{$res['address']}}</td>
+                                    <td>{{$res['from']}}</td>
+                                </tr>
+                            </tbody>
+                            @endforeach
+                            @elseif ($type == 'carinfo') 
+                            <thead>
+                                <tr>
+                                    <th>姓名</th>
+                                    <th>手机</th>
+                                    <th>身份证</th>
+                                    <th>地址</th>
+                                    <th>车名</th>
+                                    <th>价格</th>
+                                    <th>车牌</th>
+                                    <th>型号</th>
+                                    <th>购车公司</th>
+                                    <th>产商</th>
+                                    <th>发动机号</th>
+                                    <th>车架号</th>
+                                </tr>
+                            </thead>
+                            @foreach ($results as $res)
+                            <tbody>
+                                <tr>
+                                    <td>{{$res['name']}}</td>
+                                    <td>{{$res['phone']}}</td>
+                                    <td>{{$res['idcard']}}</td>
+                                    <td>{{$res['address']}}</td>
+                                    <td>{{$res['carname']}}</td>
+                                    <td>{{$res['carprice']}}</td>
+                                    <td>{{$res['carnumber']}}</td>
+                                    <td>{{$res['carmodel']}}</td>
+                                    <td>{{$res['sellcompany']}}</td>
+                                    <td>{{$res['productcompany']}}</td>
+                                    <td>{{$res['carenginenumber']}}</td>
+                                    <td>{{$res['framenumber']}}</td>
                                 </tr>
                             </tbody>
                             @endforeach
@@ -126,16 +148,16 @@
                                     <th class="col-md-1">来源</th>
                                 </tr>
                             </thead>
-                            @foreach ($results as $company)
+                            @foreach ($results as $res)
                             <tbody>
                                 <tr>
-                                    <td>{{$company['name']}}</td>
-                                    <td>{{$company['legalperson']}}</td>
-                                    <td>{{$company['phone']}}</td>
-                                    <td>{{$company['address']}}</td>
-                                    <td>{{$company['companytype']}}</td>
-                                    <td>{{$company['location']}}</td>
-                                    <td>{{$company['source']}}</td>
+                                    <td>{{$res['name']}}</td>
+                                    <td>{{$res['legalperson']}}</td>
+                                    <td>{{$res['phone']}}</td>
+                                    <td>{{$res['address']}}</td>
+                                    <td>{{$res['companytype']}}</td>
+                                    <td>{{$res['location']}}</td>
+                                    <td>{{$res['source']}}</td>
                                 </tr>
                             </tbody>
                             @endforeach
