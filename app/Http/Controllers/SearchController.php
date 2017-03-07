@@ -15,6 +15,9 @@ class SearchController extends Controller
     }
     public function show(Request $request)
     {
+
+        $ip=$request->getClientIp();
+        var_dump($ip);
         $starttime = explode(' ',microtime());
         $input=$request->all();
         $keywords=$input['keywords'];

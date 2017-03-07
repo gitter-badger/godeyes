@@ -1,4 +1,4 @@
-function search(){
+function search(host){
     var keywords=document.getElementById('keywords').value;
     var types=document.getElementsByName('type');
     for (var i = 0; i < types.length; i++) {
@@ -6,9 +6,7 @@ function search(){
             type=types[i].value;
         };
     };
-    var localhost='http://kaleozhou.iok/';
-    var localhost='http://localhost/';
-    var url=localhost+"search?keywords="+keywords+"&type="+type;
+    var url=host+"/search?keywords="+keywords+"&type="+type;
     location.href=url;
 }
 function keyDown(e){
