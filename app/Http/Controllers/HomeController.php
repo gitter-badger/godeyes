@@ -23,7 +23,6 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        $request->setTrustedProxies(array('10.32.0.1/16'));  
         $ip=$request->getClientIp();
         var_dump($ip);
         return view('home');

@@ -17,7 +17,6 @@ class SearchController extends Controller
     {
 
         $ip=$request->getClientIp();
-        var_dump($ip);
         $starttime = explode(' ',microtime());
         $input=$request->all();
         $keywords=$input['keywords'];
@@ -37,11 +36,11 @@ class SearchController extends Controller
                 ->orWhere('idcard',$keywords);
             if(count($keywords_array)>1)
             {
-            $keywords=$keywords_array[0];
-            $keyword1s=$keywords_array[1];
-            var_dump($keywords.$keyword1s);
-            $results=Peoples::where('name',$keywords)
-                ->where('address','like','%'.$keyword1s.'%');
+                $keywords=$keywords_array[0];
+                $keyword1s=$keywords_array[1];
+                var_dump($keywords.$keyword1s);
+                $results=Peoples::where('name',$keywords)
+                    ->where('address','like','%'.$keyword1s.'%');
             }
             break;
         case 'company':
@@ -68,5 +67,29 @@ class SearchController extends Controller
             ->with('type',$type)
             ->with('subtime',$subtime)
             ->with('keywords',$keywords);
+    }
+    public function showdetails(Request $request){
+        $input=$request->all();
+        $id=$input['id'];
+        $type=$input['type'];
+        switch ($type) {
+        case 'qq':
+            $result=Qqs::find($id);
+            break;
+        case 'people':
+            $result=Peoples::find($id);
+            break;
+        case 'company':
+            $result=Companys::find($id);
+            break;
+        case 'carinfo':
+            $result=Carinfos::find($id);
+            break;
+        default:
+            break;
+        }
+        return view('showdetails')
+            ->with('type',$type)
+            ->with('result',$result);
     }
 }

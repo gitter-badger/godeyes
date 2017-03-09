@@ -30,14 +30,6 @@ var host='{{config('app.url')}}';
                             车辆
                         </label>
                     </div>
-                    <div class="input-group col-md-12 top20">
-                        <div class="input-group">
-                            <input id="keywords" name="keywords"type="text" class="form-control" value="{{$keywords}}"placeholder="Search for QQ Email Username">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="button" onclick="search(host)">Go!</button>
-                            </span>
-                        </div><!-- /input-group -->
-                    </div>
                     <script type="text/javascript">
                     @if ($type=='qq')
                     document.getElementById('optionsRadios1').checked='checked';
@@ -50,36 +42,26 @@ var host='{{config('app.url')}}';
                     @endif
                     </script>
                 </div>   
-                <div class="col-md-12 col-md-offset-3 top10">
-                    <span class="col-md-6">找到约 {{$count}} 条结果 （用时 {{$subtime}} 秒） </span>
-                </div><!--col-md-12 top10-->
                 <div class="col-md-8 col-md-offset-2 top50">
-                    <div class="table-responsive">
-                        <table class="table">
-                            @if ($type == 'qq') 
-                            @foreach ($results as $res)
-                            <tbody>
-                                <tr>
-                                    <td><a href="{{url('showdetails')}}?type={{$type}}&&id={{$res['id']}}">{{$res['username']}}</td></a>
-                                    <td>{{$res['nickname']}}</td>
-                                    <td>{{$res['password']}}</td>
-                                </tr>
-                            </tbody>
-                            @endforeach
-                            @else 
-                            @foreach ($results as $res)
-                            <tbody>
-                                <tr>
-                                    <td><a href="{{url('showdetails')}}?type={{$type}}&&id={{$res['id']}}">{{$res['name']}}</td></a>
-                                    <td>{{$res['phone']}}</td>
-                                    <td>{{$res['address']}}</td>
-                                </tr>
-                            </tbody>
-                            @endforeach
-                            @endif
-                        </table>
-                    </div>
-                    {{$results->appends(['keywords'=>$keywords,'type'=>$type])->links()}}
+                    @if ($type=='qq')
+                    <tr>
+                        <td>用户名</td>
+                        <td>{{$result['username']}}</td>
+                        <td>密码</td>
+                        <td>{{$result['password']}}</td>
+                    </tr>
+                    @elseif ($type=='people')
+                    <tr>
+                        <td>姓名</td>
+                        <td>{{$result['name']}}</td>
+                        <td>电话</td>
+                        <td>{{$result['phone']}}</td>
+                    </tr>
+                    @elseif ($type=='carinfo')
+                    @else ($type=='company')
+                    @endif
+
+                    
                 </div>
             </div><!-- col-md-8--> 
         </div><!-- row top-->
