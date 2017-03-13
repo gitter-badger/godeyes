@@ -1,4 +1,5 @@
-function search(host){
+function search(){
+    var host=document.getElementById('host').value;
     var keywords=document.getElementById('keywords').value;
     var types=document.getElementsByName('type');
     for (var i = 0; i < types.length; i++) {

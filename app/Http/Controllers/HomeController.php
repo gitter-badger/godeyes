@@ -24,7 +24,6 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $ip=$request->getClientIp();
-        var_dump($ip);
         return view('home');
     }
 }

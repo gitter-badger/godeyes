@@ -1,10 +1,8 @@
 @extends('layouts.app')
 @section('content')
-<script type='text/javascript'>
-var host='{{config('app.url')}}';
-</script>
 <link rel="stylesheet" href="{{url('css/kaleo.css')}}" type="text/css"/>
 <div class="container">
+     <input type='hidden' id='host' name='host' value='{{config('app.url')}}'>
     <div class="row">
         <div class="col-md-12 top50">
             <div class="col-md-12" >
@@ -34,7 +32,7 @@ var host='{{config('app.url')}}';
                         <div class="input-group">
                             <input id="keywords" name="keywords"type="text" class="form-control" value="{{$keywords}}"placeholder="Search for QQ Email Username">
                             <span class="input-group-btn">
-                                <button class="btn btn-default" type="button" onclick="search(host)">Go!</button>
+                                <button class="btn btn-default" type="button" onclick="search()">Go!</button>
                             </span>
                         </div><!-- /input-group -->
                     </div>

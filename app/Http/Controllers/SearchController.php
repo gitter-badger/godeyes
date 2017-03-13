@@ -23,7 +23,7 @@ class SearchController extends Controller
         if (empty($keywords)) {
             $keywords="";
         }
-        $keywords_array=explode(' ',$keywords);
+        $keywords_array=explode(',',$keywords);
         $type=$input['type'];
         switch ($type) {
         case 'qq':
@@ -32,13 +32,11 @@ class SearchController extends Controller
         case 'people':
             $results=Peoples::where('name',$keywords)
                 ->orWhere('phone',$keywords)
-                ->orWhere('idcard',$keywords)
                 ->orWhere('idcard',$keywords);
             if(count($keywords_array)>1)
             {
                 $keywords=$keywords_array[0];
                 $keyword1s=$keywords_array[1];
-                var_dump($keywords.$keyword1s);
                 $results=Peoples::where('name',$keywords)
                     ->where('address','like','%'.$keyword1s.'%');
             }
